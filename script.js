@@ -2,5 +2,6 @@ document.getElementById("submit").addEventListener("click", fixExpenseReport);
 
 function fixExpenseReport() {
   let userInput = document.querySelector("#userInput").value;
-  console.log(userInput);
+  let data = userInput.match(/\d+/g);
+  console.log(data);
 }
