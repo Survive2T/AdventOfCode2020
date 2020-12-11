@@ -6,11 +6,22 @@ function CheckIfPasswordValid(pwdObj) {
   let isValid = false;
   let count = 0;
 
+  /* // Old Password Method
   pwdObj.password.split("").forEach((letter) => {
     if (letter == pwdObj.key) count++;
   });
   if (count <= pwdObj.max && count >= pwdObj.min) isValid = true;
-
+  */
+  // New Password Method
+  if (
+    (pwdObj.password[pwdObj.min - 1] == pwdObj.key ||
+      pwdObj.password[pwdObj.max - 1] == pwdObj.key) &&
+    !(
+      pwdObj.password[pwdObj.min - 1] == pwdObj.key &&
+      pwdObj.password[pwdObj.max - 1] == pwdObj.key
+    )
+  )
+    isValid = true;
   return isValid;
 }
 
